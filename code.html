@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agrinho 2025 - Futuro Sustentável</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg-light: #ffffff;
+      --color-bg-dark: #121212;
+      --color-text-light: #374151;
+      --color-text-dark: #e0e0e0;
+      --color-primary: #16a34a; /* Moss green */
+      --color-primary-dark: #4ade80;
+      --color-accent: #059669;
+      --color-shadow: rgba(0, 0, 0, 0.1);
+      --font-family: 'Poppins', sans-serif;
+      --transition-fast: 0.3s ease;
+      --border-radius: 0.75rem;
+      --max-width: 1200px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background: var(--color-bg-light);
+      color: var(--color-text-light);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-dark);
+    }
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    a:hover,
+    a:focus {
+      color: var(--color-primary-dark);
+      outline: none;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg-light);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 2px 8px var(--color-shadow);
+      z-index: 1000;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    body.dark header {
+      background: var(--color-bg-dark);
+      border-color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      cursor: default;
+      user-select: none;
+    }
+    body.dark .logo {
+      color: var(--color-primary-dark);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--transition-fast), color var(--transition-fast);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      border-bottom-color: var(--color-primary);
+      color: var(--color-primary-dark);
+    }
+    body.dark .nav-links a:hover,
+    body.dark .nav-links a:focus {
+      color: var(--color-primary-dark);
+      border-bottom-color: var(--color-primary-dark);
+    }
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 8px rgba(22,163,74,0.4);
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--color-primary-dark);
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 6px 12px rgba(22,163,74,0.6);
+    }
+    body.dark .btn-primary {
+      box-shadow: 0 4px 8px rgba(74,222,128,0.6);
+    }
+    main {
+      flex-grow: 1;
+      max-width: var(--max-width);
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 4rem 1rem 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      user-select: none;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: var(--color-text-light);
+      user-select: none;
+    }
+    body.dark .hero p {
+      color: var(--color-text-dark);
+    }
+    section.features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+    .card {
+      background: var(--color-bg-light);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 16px var(--color-shadow);
+      padding: 2rem 1.5rem;
+      transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      user-select: none;
+    }
+    body.dark .card {
+      background: #1e293b;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 10px 24px var(--color-shadow);
+      transform: translateY(-6px);
+      outline: none;
+      cursor: default;
+    }
+    .card svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+      stroke: var(--color-primary);
+      flex-shrink: 0;
+    }
+    body.dark .card svg {
+      stroke: var(--color-primary-dark);
+    }
+    .card h3 {
+      margin: 0 0 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+    }
+    body.dark .card h3 {
+      color: var(--color-primary-dark);
+    }
+    .card p {
+      margin: 0;
+      color: var(--color-text-light);
+      font-size: 1rem;
+    }
+    body.dark .card p {
+      color: var(--color-text-dark);
+    }
+    .counters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+    .counter {
+      background: var(--color-bg-light);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px var(--color-shadow);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      flex: 1 1 180px;
+      max-width: 280px;
+      user-select: none;
+      transition: box-shadow var(--transition-fast);
+    }
+    body.dark .counter {
+      background: #1e293b;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.85);
+    }
+    .counter:hover {
+      box-shadow: 0 8px 24px var(--color-shadow);
+      cursor: default;
+    }
+    .counter strong {
+      display: block;
+      font-size: 2.5rem;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+    body.dark .counter strong {
+      color: var(--color-primary-dark);
+    }
+    .counter span {
+      font-size: 1rem;
+      color: var(--color-text-light);
+    }
+    body.dark .counter span {
+      color: var(--color-text-dark);
+    }
+    footer {
+      background: var(--color-bg-light);
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+      user-select: none;
+      border-top: 1px solid #e5e7eb;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    body.dark footer {
+      background: var(--color-bg-dark);
+      border-color: #333;
+      color: #9ca3af;
+    }
+    footer a {
+      color: var(--color-primary);
+    }
+    footer a:hover,
+    footer a:focus {
+      color: var(--color-primary-dark);
+      outline: none;
+    }
+    /* Theme toggle */
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--color-primary);
+      border-radius: 9999px;
+      width: 3.2rem;
+      height: 3.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+      margin-left: 1rem;
+      user-select: none;
+    }
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      background-color: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+      outline: none;
+    }
+    body.dark .theme-toggle {
+      border-color: var(--color-primary-dark);
+      color: var(--color-primary-dark);
+    }
+    body.dark .theme-toggle:hover,
+    body.dark .theme-toggle:focus {
+      background-color: var(--color-primary-dark);
+      color: white;
+      border-color: var(--color-primary-dark);
+      outline: none;
+    }
+    /* Icon styles */
+    svg.icon {
+      width: 1.6rem;
+      height: 1.6rem;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="logo" aria-label="Agrinho 2025 Logo">Agrinho 2025</div>
+      <div class="nav-links">
+        <a href="#about">Sobre</a>
+        <a href="#features">Destaques</a>
+        <a href="#metrics">Impacto</a>
+        <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Alternar tema claro e escuro" title="Alternar tema claro e escuro">
+          <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="about" tabindex="-1">
+      <h1>Agrinho 2025: Construindo um Futuro Sustentável</h1>
+      <p>
+        Um movimento que incentiva crianças e jovens a aprenderem sobre a importância da agricultura sustentável e contribuem para um mundo melhor.
+      </p>
+      <a href="#features" class="btn-primary" role="button">Conheça mais</a>
+    </section>
+
+    <section class="features" id="features" aria-label="Destaques do Agrinho 2025">
+      <article class="card" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <h3>Educação Ambiental</h3>
+        <p>Promovemos aulas e atividades para conscientizar crianças sobre a preservação do meio ambiente e agricultura orgânica.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <line x1="12" y1="2" x2="12" y2="22"></line>
+        </svg>
+        <h3>Inovação Tecnológica</h3>
+        <p>Incentivamos o uso de tecnologias verdes e sustentabilidade para transformar a agricultura tradicional.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+        <h3>Engajamento Comunitário</h3>
+        <p>Fortalecimento da comunidade local com projetos colaborativos, promovendo bem-estar e sustentabilidade.</p>
+      </article>
+    </section>
+
+    <section class="counters" id="metrics" aria-label="Métricas de impacto do Agrinho 2025">
+      <div class="counter" tabindex="0" aria-live="polite" aria-atomic="true">
+        <strong id="counter-schools">0</strong>
+        <span>Escolas Participantes</span>
+      </div>
+      <div class="counter" tabindex="0" aria-live="polite" aria-atomic="true">
+        <strong id="counter-students">0</strong>
+        <span>Crianças Engajadas</span>
+      </div>
+      <div class="counter" tabindex="0" aria-live="polite" aria-atomic="true">
+        <strong id="counter-trees">0</strong>
+        <span>Árvores Plantadas</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © 2024 Agrinho 2025 — Fontes: <a href="https://www.itau.com.br/agrinho" target="_blank" rel="noopener noreferrer">Itaú Agrinho</a>, <a href="https://www.embrapa.br" target="_blank" rel="noopener noreferrer">Embrapa</a>, <a href="https://www.abc.com.br" target="_blank" rel="noopener noreferrer">ABC Brasil</a>.
+    </p>
+  </footer>
+
+  <script>
+    // Smooth scroll is handled by CSS scroll-behavior
+
+    // Animate counters on viewport visible
+    function animateCounter(id, target, duration) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        el.textContent = Math.floor(progress * target).toLocaleString('pt-BR');
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toLocaleString('pt-BR');
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Check if counters section is visible + animate once
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 &&
+        rect.bottom >= 0
+      );
+    }
+    let countersAnimated = false;
+    function checkCounters() {
+      if (countersAnimated) return;
+      const countersSection = document.getElementById('metrics');
+      if (!countersSection) return;
+      if (isInViewport(countersSection)) {
+        animateCounter('counter-schools', 150, 1500);
+        animateCounter('counter-students', 7500, 2000);
+        animateCounter('counter-trees', 3400, 1800);
+        countersAnimated = true;
+      }
+    }
+    window.addEventListener('scroll', checkCounters);
+    window.addEventListener('load', checkCounters);
+
+    // Theme toggle
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function setTheme(isDark) {
+      if (isDark) {
+        document.body.classList.add("dark");
+        themeToggleBtn.setAttribute("aria-pressed", "true");
+      } else {
+        document.body.classList.remove("dark");
+        themeToggleBtn.setAttribute("aria-pressed", "false");
+      }
+    }
+
+    // Initialize theme from system preference or localStorage
+    function initTheme() {
+      const savedTheme = localStorage.getItem('agrinho-theme');
+      if (savedTheme) {
+        setTheme(savedTheme === 'dark');
+      } else {
+        setTheme(prefersDarkScheme.matches);
+      }
+    }
+    initTheme();
+
+    themeToggleBtn.addEventListener("click", () => {
+      const isDark = document.body.classList.contains("dark");
+      setTheme(!isDark);
+      localStorage.setItem('agrinho-theme', !isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
+
